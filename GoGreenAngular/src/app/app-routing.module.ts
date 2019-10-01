@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {MmCreateComponent} from "./mm/mm-create/mm-create.component";
+import {MmCreateComponent} from "./modules/mm/mm-create/mm-create.component";
 
 
 const routes: Routes = [
