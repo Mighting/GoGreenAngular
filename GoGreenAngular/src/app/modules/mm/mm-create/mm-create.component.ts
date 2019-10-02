@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-mm-create',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MmCreateComponent implements OnInit {
 
-  constructor() { }
+  constructor(private fb: FormBuilder) {
+
+  }
 
   ngOnInit() {
+    this.createMMForm = this.fb.group({
+
+    })
   }
 
 }

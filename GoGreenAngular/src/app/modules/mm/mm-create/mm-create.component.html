@@ -1,34 +1,38 @@
-<!-- Navn -->
-<div class="row">
-  <div class="col">
-    <input type="text" class="form-control" placeholder="Fornavn">
-  </div>
-  <div class="col">
-    <input type="text" class="form-control" placeholder="Efternavn">
-  </div>
-</div>
+<form [formGroup]='createMMForm' (ngSubmit)="onSubmit()">
 
-<!-- Adresse -->
-<div class="row">
-  <div class="col">
-    <input type="text" class="form-control" placeholder="Adresse">
+  <!-- Navn -->
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" formControlName="first-name" placeholder="Fornavn">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" formControlName="last-name" placeholder="Efternavn">
+    </div>
   </div>
-  <div class="col">
-    <input type="text" class="form-control" placeholder="Husnummer">
-  </div>
-  <div class="col">
-    <input type="text" class="form-control" placeholder="Etage">
-  </div>
-</div>
 
-<!-- Kontakt oplysninger -->
-<div class="row">
-  <div class="col">
-    <input type="text" class="form-control" placeholder="Email">
+  <!-- Adresse -->
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" formControlName="address" placeholder="Adresse">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" formControlName="houseNumber" placeholder="Husnummer">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" formControlName="floorNumber" placeholder="Etage">
+    </div>
   </div>
-  <div class="col">
-    <input type="text" class="form-control" placeholder="Telefon">
-  </div>
-</div>
 
-<button class="btn btn-primary" type="button" name="button">Opret</button>
+  <!-- Kontakt oplysninger -->
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" formControlName="email" placeholder="Email">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" formControlName="phone" placeholder="Telefon">
+    </div>
+  </div>
+
+  <button class="btn btn-primary" type="button" name="button">Opret</button>
+
+</form>
