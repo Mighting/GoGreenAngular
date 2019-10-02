@@ -1,44 +1,55 @@
-<form [formGroup]='createMMForm' (ngSubmit)="onSubmit()">
+<div class="container ">
 
-  <!-- Navn -->
-  <div class="row">
-    <div class="col">
-      <input type="text" class="form-control" formControlName="firstName" placeholder="Fornavn">
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" formControlName="lastName" placeholder="Efternavn">
-    </div>
-  </div>
+    <div class="row">
 
-  <!-- Adresse -->
-  <div class="row">
-    <div class="col">
-      <input type="text" class="form-control" formControlName="address" placeholder="Adresse">
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" formControlName="zipCode" placeholder="postnummer">
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" formControlName="houseNumber" placeholder="Husnummer">
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" formControlName="floorNumber" placeholder="Etage">
-    </div>
-  </div>
+        <div class="col">
+            <h2 class="info-header">Opret dig som Mikro Marked</h2>
+            <p>Tilmeld dig vores applikation, for nemmere at komme i kontakt med dit lokale marked.</p>
+        </div>
+        <div class="col">
+            <form [formGroup]='createMMForm' (ngSubmit)="onSubmit()">
+                <!-- Navn -->
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" formControlName="firstName" placeholder="Fornavn">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" formControlName="lastName" placeholder="Efternavn">
+                    </div>
+                </div>
 
-  <!-- Kontakt oplysninger -->
-  <div class="row">
-    <div class="col">
-      <input type="text" class="form-control" formControlName="email" placeholder="Email">
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" formControlName="password" placeholder="Password">
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" formControlName="phone" placeholder="Telefon">
-    </div>
-  </div>
+                <!-- Adresse -->
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" formControlName="address" placeholder="Adresse">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" formControlName="zipCode" placeholder="postnummer">
+                    </div>
+                </div>
+                <div class="row">
 
-  <button class="btn btn-primary" type="submit" name="button">Opret</button>
-
-</form>
+                    <div class="col">
+                        <input type="text" class="form-control" formControlName="houseNumber" placeholder="Husnummer">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" formControlName="floorNumber" placeholder="Etage">
+                    </div>
+                </div>
+                <!-- Kontakt oplysninger -->
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" formControlName="email" placeholder="Email">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" formControlName="password" placeholder="Password">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" formControlName="phone" placeholder="Telefon">
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit" name="button">Opret</button>
+            </form>
+        </div>
+    </div>
+</div>
