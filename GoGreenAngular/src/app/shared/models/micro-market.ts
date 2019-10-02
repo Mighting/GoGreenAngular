@@ -10,7 +10,7 @@ export interface MicroMarket {
 
   // ID's
   microMarketID: number;
-  zipCodeID: number;
+  zipCode: number;
 
   // Orders
   orderHoursStart: Date;

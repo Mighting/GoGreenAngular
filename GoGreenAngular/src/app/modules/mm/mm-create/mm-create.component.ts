@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {MicroMarket} from "../../../shared/models/micro-market";
+import {MicroMarketService} from "../shared/micro-market.service";
+
 
 @Component({
   selector: 'app-mm-create',
@@ -9,8 +12,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class MmCreateComponent implements OnInit {
   private createMMForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  // private fb: FormBuilder;
 
+  constructor(private fb: FormBuilder, private mmsrv: MicroMarketService) {
+    // this.fb = _fb;
   }
 
   ngOnInit() {
@@ -21,12 +26,39 @@ export class MmCreateComponent implements OnInit {
       houseNumber: ['', [Validators.required]],
       floorNumber: ['', [Validators.required]],
       email: ['', [Validators.required]],
+      zipCode: ['', [Validators.required]],
+      password: ['', [Validators.required]],
       phone: ['', [Validators.required]]
-    })
-  };
+    });
+  }
 
   onSubmit() {
-    if(this.createMMForm.valid) {
+    if (this.createMMForm.valid) {
+
+      let mm: MicroMarket = {
+        email: this.createMMForm.value.email,
+        firstName: this.createMMForm.value.firstName,
+        floorNumber: this.createMMForm.value.floorNumber,
+        houseNumber: this.createMMForm.value.houseNumber,
+        lastName: this.createMMForm.value.lastName,
+        microMarketID: 0,
+        openingHoursEnd: undefined,
+        openingHoursStart: undefined,
+        orderHoursEnd: undefined,
+        orderHoursStart: undefined,
+        password: this.createMMForm.value.password,
+        phoneNumber: this.createMMForm.value.phoneNumber,
+        productList: [],
+        streetName: this.createMMForm.value.streetName,
+        zipCode: this.createMMForm.value.zipCode
+      };
+
+      this.mmsrv.postMicroMarket(mm).subscribe((res: any) => {
+        alert(res);
+      }, error => {
+        alert("Error " + error.message);
+        console.log(error);
+      });
 
     }
   }
