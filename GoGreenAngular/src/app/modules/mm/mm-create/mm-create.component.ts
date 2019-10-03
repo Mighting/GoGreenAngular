@@ -64,11 +64,12 @@ export class MmCreateComponent implements OnInit {
     }
   }
 
-  getbtn() {
-    this.mmsrv.getZipcode().subscribe((res: any) => {
-
-      // alert(res)
-
-    });
-  }
+  // Test GET
+  // getbtn() {
+  //   this.mmsrv.getZipcode().subscribe((res: any) => {
+  //
+  //     // alert(res)
+  //
+  //   });
 }
+
