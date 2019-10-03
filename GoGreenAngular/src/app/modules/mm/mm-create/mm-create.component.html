@@ -1,5 +1,10 @@
-<div class="container ">
+<datalist id="listZipcode">
+  <ng-container *ngFor="let row of zipcodes">
+    <option [value]="row.zipCode"></option>
+  </ng-container>
+</datalist>
 
+<div class="container">
     <div class="row">
 
         <div class="col">
@@ -24,7 +29,7 @@
                         <input type="text" class="form-control" formControlName="address" placeholder="Adresse">
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" formControlName="zipCode" placeholder="postnummer">
+                        <input type="text" class="form-control" formControlName="zipCode" list="listZipcode" placeholder="postnummer">
                     </div>
                 </div>
                 <div class="row">
@@ -51,6 +56,5 @@
                 <button class="btn btn-primary" type="submit" name="button">Opret</button>
             </form>
         </div>
-      <button class="btn btn-primary" name="Gettter" (click)="getbtn()">Get!</button>
     </div>
 </div>

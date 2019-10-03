@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MicroMarket} from "../../../shared/models/micro-market";
 import {MicroMarketService} from "../shared/micro-market.service";
+import {ZipCodeService} from "../../../shared/zip-code.service";
+import {ZipCode} from "../../../shared/models/zip-code";
 
 
 @Component({
@@ -12,11 +14,9 @@ import {MicroMarketService} from "../shared/micro-market.service";
 export class MmCreateComponent implements OnInit {
   public createMMForm: FormGroup;
 
-  // private fb: FormBuilder;
-
-  constructor(private fb: FormBuilder, private mmsrv: MicroMarketService) {
-    // this.fb = _fb;
+  constructor(private fb: FormBuilder, private mmsrv: MicroMarketService, private zipsrv: ZipCodeService) {
   }
+  public zipcodes: ZipCode[] = [];
 
   ngOnInit() {
     this.createMMForm = this.fb.group({
@@ -29,6 +29,13 @@ export class MmCreateComponent implements OnInit {
       zipCode: ['', [Validators.required]],
       password: ['', [Validators.required]],
       phone: ['']
+    });
+
+    this.zipsrv.getZipcode().subscribe(success => {
+      this.zipcodes = success;
+      console.log(this.zipcodes);
+    }, error => {
+      console.log(error);
     });
   }
 
@@ -53,22 +60,11 @@ export class MmCreateComponent implements OnInit {
         streetName: this.createMMForm.value.address,
         zipCode: this.createMMForm.value.zipCode
       };
-
       this.mmsrv.postMicroMarket(mm).subscribe((res: any) => {
-        // alert(res);
+        //TODO Prety toast
       }, error => {
-        // alert("Error " + error.message);
         console.log(error);
       });
-
     }
-  }
-
-  getbtn() {
-    this.mmsrv.getZipcode().subscribe((res: any) => {
-
-      // alert(res)
-
-    });
   }
 }
