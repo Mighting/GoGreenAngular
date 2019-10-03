@@ -18,6 +18,6 @@ export interface MicroMarket {
   openingHoursStart: Date;
   openingHoursEnd: Date;
 
-  productList: any[];
+  products: any[];
 
 }

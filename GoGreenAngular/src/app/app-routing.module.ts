@@ -4,7 +4,7 @@ import {MmCreateComponent} from "./modules/mm/mm-create/mm-create.component";
 
 
 const routes: Routes = [
-  {path: "login", component: MmCreateComponent},
+  {path: "register", component: MmCreateComponent},
 ];
 
 @NgModule({

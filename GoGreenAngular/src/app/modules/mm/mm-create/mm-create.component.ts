@@ -10,7 +10,7 @@ import {MicroMarketService} from "../shared/micro-market.service";
   styleUrls: ['./mm-create.component.css']
 })
 export class MmCreateComponent implements OnInit {
-  private createMMForm: FormGroup;
+  public createMMForm: FormGroup;
 
   // private fb: FormBuilder;
 
@@ -24,11 +24,11 @@ export class MmCreateComponent implements OnInit {
       lastName: ['', [Validators.required]],
       address: ['', [Validators.required]],
       houseNumber: ['', [Validators.required]],
-      floorNumber: ['', [Validators.required]],
+      floorNumber: [''],
       email: ['', [Validators.required]],
       zipCode: ['', [Validators.required]],
       password: ['', [Validators.required]],
-      phone: ['', [Validators.required]]
+      phone: ['']
     });
   }
 
@@ -47,9 +47,9 @@ export class MmCreateComponent implements OnInit {
         orderHoursEnd: undefined,
         orderHoursStart: undefined,
         password: this.createMMForm.value.password,
-        phoneNumber: this.createMMForm.value.phoneNumber,
-        productList: [],
-        streetName: this.createMMForm.value.streetName,
+        phoneNumber: this.createMMForm.value.phone,
+        products: [],
+        streetName: this.createMMForm.value.address,
         zipCode: this.createMMForm.value.zipCode
       };
 
@@ -61,5 +61,13 @@ export class MmCreateComponent implements OnInit {
       });
 
     }
+  }
+
+  getbtn() {
+    this.mmsrv.getZipcode().subscribe((res: any) => {
+
+      // alert(res)
+
+    });
   }
 }
