@@ -67,4 +67,13 @@ export class MmCreateComponent implements OnInit {
       });
     }
   }
+
+  // Test GET
+  // getbtn() {
+  //   this.mmsrv.getZipcode().subscribe((res: any) => {
+  //
+  //     // alert(res)
+  //
+  //   });
 }
+
