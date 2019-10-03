@@ -32,6 +32,7 @@ export class MmCreateComponent implements OnInit {
     });
   }
 
+  // MM create
   onSubmit() {
     if (this.createMMForm.valid) {
 
@@ -54,9 +55,9 @@ export class MmCreateComponent implements OnInit {
       };
 
       this.mmsrv.postMicroMarket(mm).subscribe((res: any) => {
-        alert(res);
+        // alert(res);
       }, error => {
-        alert("Error " + error.message);
+        // alert("Error " + error.message);
         console.log(error);
       });
 
